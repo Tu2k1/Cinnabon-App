@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.example.cinnabonapp.ui.StartFragment"
+        android:label="Welcome"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_cinnabonListFragment"
+            app:destination="@id/cinnabonListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cinnabonListFragment"
+        android:name="com.example.cinnabonapp.ui.CinnabonListFragment"
+        android:label="Cinnabon"
+        tools:layout="@layout/fragment_cinnabon_list" >
+        <action
+            android:id="@+id/action_cinnabonListFragment_to_cinnabonNumberFragment"
+            app:destination="@id/cinnabonNumberFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cinnabonNumberFragment"
+        android:name="com.example.cinnabonapp.ui.CinnabonNumberFragment"
+        android:label="Cinnabon Number"
+        tools:layout="@layout/fragment_cinnabon_number" >
+        <action
+            android:id="@+id/action_cinnabonNumberFragment_to_pickupDateFragment"
+            app:destination="@id/pickupDateFragment" />
+        <action
+            android:id="@+id/action_cinnabonNumberFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pickupDateFragment"
+        android:name="com.example.cinnabonapp.ui.PickupDateFragment"
+        android:label="Pickup Date"
+        tools:layout="@layout/fragment_pickup_date" >
+        <action
+            android:id="@+id/action_pickupDateFragment_to_summaryFragment"
+            app:destination="@id/summaryFragment" />
+        <action
+            android:id="@+id/action_pickupDateFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/summaryFragment"
+        android:name="com.example.cinnabonapp.ui.SummaryFragment"
+        android:label="Order Summary"
+        tools:layout="@layout/fragment_summary" >
+        <action
+            android:id="@+id/action_summaryFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
+</navigation>

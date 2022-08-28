@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.cinnabonapp.viewmodel.CinnabonViewModel" />
+        <variable
+            name="startFragment"
+            type="com.example.cinnabonapp.ui.StartFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.StartFragment">
+
+        <ImageView
+            android:id="@+id/cinnabon_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@drawable/classic_roll"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/welcome"
+            android:layout_width="233dp"
+            android:layout_height="105dp"
+            android:layout_marginTop="92dp"
+            android:gravity="center"
+            android:text="@string/welcome"
+            android:textColor="@color/black"
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cinnabon_image" />
+
+        <Button
+            android:id="@+id/start_button"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="112dp"
+            android:onClick="@{() -> startFragment.nextScreen()}"
+            android:text="@string/start"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/welcome" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

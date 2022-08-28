@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.cinnabonapp.viewmodel.CinnabonViewModel" />
+        <variable
+            name="pickupFragment"
+            type="com.example.cinnabonapp.ui.PickupDateFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.PickupDateFragment">
+
+        <RadioGroup
+            android:id="@+id/pickup_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RadioButton
+                android:id="@+id/first_day"
+                android:onClick="@{() -> viewModel.setDate(viewModel.dateOptions[0])}"
+                android:text="@{viewModel.dateOptions[0]}"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:layout_height="wrap_content"
+                tools:text="Wed Aug 24" />
+
+            <RadioButton
+                android:id="@+id/second_day"
+                android:onClick="@{() -> viewModel.setDate(viewModel.dateOptions[1])}"
+                android:text="@{viewModel.dateOptions[1]}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Thu Aug 25" />
+
+            <RadioButton
+                android:id="@+id/third_day"
+                android:onClick="@{() -> viewModel.setDate(viewModel.dateOptions[2])}"
+                android:text="@{viewModel.dateOptions[2]}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Fri Aug 26" />
+
+            <RadioButton
+                android:id="@+id/fourth_day"
+                android:onClick="@{() -> viewModel.setDate(viewModel.dateOptions[3])}"
+                android:text="@{viewModel.dateOptions[3]}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Sat Aug 27" />
+        </RadioGroup>
+
+        <Button
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="116dp"
+            android:onClick="@{() -> pickupFragment.cancelOrder()}"
+            android:text="@string/cancel"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toStartOf="@+id/next_button"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pickup_date" />
+
+        <Button
+            android:id="@+id/next_button"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="244dp"
+            android:onClick="@{() -> pickupFragment.nextScreen()}"
+            android:layout_marginTop="116dp"
+            android:text="@string/next"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pickup_date" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.cinnabonapp.viewmodel.CinnabonViewModel" />
+        <variable
+            name="cinnabonNumber"
+            type="com.example.cinnabonapp.ui.CinnabonNumberFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.CinnabonNumberFragment">
+
+        <TextView
+            android:id="@+id/title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:gravity="center"
+            android:text="@string/cinnabon_number_title"
+            android:textColor="@color/black"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.huynn109.IncreaseDecreaseButton
+            android:id="@+id/increase_decrease"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="104dp"
+            app:initNumber="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_tv"
+            app:maxNumber="20"
+            app:minNumber="1" />
+
+        <Button
+            style="?attr/materialButtonOutlinedStyle"
+            android:id="@+id/cancel_button"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="116dp"
+            android:onClick="@{() -> cinnabonNumber.cancelOrder()}"
+            android:text="@string/cancel"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toStartOf="@+id/next_button"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/increase_decrease" />
+
+        <Button
+            android:id="@+id/next_button"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="244dp"
+            android:onClick="@{() -> cinnabonNumber.nextScreen()}"
+            android:layout_marginTop="116dp"
+            android:text="@string/next"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/increase_decrease" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
